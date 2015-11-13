@@ -1,0 +1,20 @@
+#change{
+    background-color: #FFFF00;
+    height: 600px;
+  }
+
+  #color1{
+    background-color: hsv(150,100%,100%);
+  }
+
+  #color2{
+    background-color: hsv(240,100%,100%);
+  }
+
+  #color3{
+    background-color: hsv(330,100%,100%);
+  }
+
+  #text{
+    color:#FFFF00;
+  }

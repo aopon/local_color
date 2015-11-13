@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	background-color:#c0c0c0;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	color: #333333;
+}
+
+header{
+	background-color:rgba(192,192,192,0.9);
+	padding-top: 10px 10px;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+}
+
+#text{
+	background-color: #ffffff;
+	font-size: 11px;
+	margin:10px 10px;
+	padding: 1px 10px;
+	border-radius: 5px;
+}
+
+#message {
+	width:100%;
+}
+
+#detail a{
+	font-size: 8px;
+	float: right;
+	margin-bottom: 10px;
+	color:#000000;
+	margin-right: 20px;
+}
+
+#detail a:hover{
+	color:rgb(255, 177, 74);
+}
+
+#wrap{
+	/*border:1px #ffffff solid;*/
+	clear:both;
+	margin-top: auto;
+	padding-top: auto;
+	padding-left:10px;
+	padding-right:10px;
+}
+#i1{
+  margin-top:5px;
+  margin-bottom:3px;
+	float:left;
+	padding-left: 5px;
+}
+
+#i2{
+	float:left;
+	padding-top:4px;
+	padding-right:5px;
+}
+
+#pattern{
+	padding-left:15px;
+	padding-bottom:15px;
+  background-color:#FFF;
+	margin-top:10px;
+	border-radius: 10px;
+}
+
+#pattern span{
+	font-size:12px;
+}
+
+#con_change{
+  margin-bottom:30px;
+	background-color:#FFF;
+	margin-top:20px;
+	padding-bottom:15px;
+	padding-left:15px;
+	padding-right:15px;
+	border-radius: 10px;
+	}
+
+#con_change ul{
+	margin: 0;
+  padding: 0;
+}
+#con_change li{
+	font-size:14px;
+	list-style:none;
+	margin: 0;
+  padding: 0;
+  list-style-position:outside;
+	line-height:30px;
+}
+
+#con_change span{
+	font-size:12px;
+}
+
+#btn{
+	clear:both;
+}
+#favorite{
+    margin-bottom:30px;
+}
+
+h4{
+	padding-top:10px;
+	margin-bottom:10px;
+	font-size: 14px;
+}
+#item{
+	float:left;
+}
+
+#change{
+	text-align:right;
+}
+
+#con_change li:hover{
+  	background-color:#FFC;
+}
+
+input[type=color]{
+	width:50px;
+	height:30px;
+}
+
+input:hover{
+ 	cursor:pointer;
+}
+
+h4 img{
+	margin-right:5px;
+	vertical-align: middle;
+}
+
+input .ip_btn{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input .btn2{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input.ip_btn{
+	padding:3px 15px;
+	background:#ffffff;
+	border: solid 1px #999;
+	color:#767477;
+	border-radius: 5px;
+	outline: 0px none transparent;
+}
+
+input.ip_btn:hover{
+	padding:3px 15px;
+	background:rgb(93, 93, 93);
+	border: solid 1px rgb(93, 93, 93);
+	color:#ffffff;
+	border-radius: 5px;
+	outline: 0px none transparent;
+}
+
+#btn{
+	padding:0px 50px;
+}
+
+input.btn2{
+	padding:3px 10px;
+	background:#ffffff;
+	border: solid 1px #999;
+	color:#767477;
+	border-radius: 13px;
+	outline: 0px none transparent;
+}
+
+input.btn2:hover{
+	padding:3px 10px;
+	background:rgb(93, 93, 93);
+	border: solid 1px rgb(93, 93, 93);
+	color:#ffffff;
+	border-radius: 13px;
+	outline: 0px none transparent;
+}
+
+#pattern0{
+	width:150px;
+	padding: 3px 10px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	color: #767477;
+	appearance: none;
+	border: 1px solid #999;
+	background: #eee;
+	background: url(img/icon3.png) 125px 7px no-repeat;
+	background-size:15px 10px;
+	outline: 0px none transparent;
+}

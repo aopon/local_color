@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+<title>color teacher</title>
+<link href="menu.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="test.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="image1.js"></script>
+<script type="text/javascript" src="i_pattern.js"></script>
+<script type="text/javascript" src="message.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function next_btn(n) {
+  var p = String(n);
+  var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
+  xmlHttp.open('GET','/cgi-bin/test.rb?p='+p,true);
+  xmlHttp.onreadystatechange=function(){ /*小僧が持ってくる動作*/
+    if(xmlHttp.readyState==4){
+	    xml = xmlHttp.responseXML;
+      col1 =  xml.getElementsByTagName("b")[0].firstChild.nodeValue;kame
+      col2 =  xml.getElementsByTagName("m")[0].firstChild.nodeValue;
+      col3 =  xml.getElementsByTagName("a")[0].firstChild.nodeValue;
+      show(col1,col2,col3);
+      alert(p);
+    }
+  }
+  xmlHttp.send(null);
+}
+function show(color1,color2,color3){
+  var canvas = document.getElementById("can");
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = color1;
+  ctx.fillRect(10,10,30,30);
+  ctx.fillStyle = color2;
+  ctx.fillRect(40,10,30,30);
+  ctx.fillStyle = color3;
+  ctx.fillRect(70,10,30,30);
+}
+
+var index = 0;
+function next(){
+  index = (index + 1) %5;
+  next_btn(index);
+}
+
+$(function(){
+    var $setElm = $('.viewer'),
+    fadeSpeed = 1500,
+    switchDelay = 4000;
+
+    $setElm.each(function(){
+        var targetObj = $(this);
+        var findUl = targetObj.find('ul');
+        var findLi = targetObj.find('li');
+        var findLiFirst = targetObj.find('li:first');
+
+        findLi.css({display:'block',opacity:'0',zIndex:'99'});
+        findLiFirst.css({zIndex:'100'}).stop().animate({opacity:'1'},fadeSpeed);
+
+        setInterval(function(){
+            findUl.find('li:first-child').animate({opacity:'0'},fadeSpeed).next('li').css({zIndex:'100'}).animate({opacity:'1'},fadeSpeed).end().appendTo(findUl).css({zIndex:'99'});
+        },switchDelay);
+    });
+});
+
+</script>
+<!--<script src="jquery-1.8.3.min.js"></script>-->
+</head>
+
+<body>
+<div id="wrap">
+  <!--
+  <input type="button" value="1" onclick='next_btn(0)'>
+  <input type="button" value="2" onclick='next_btn(1)'>
+  <input type="button" value="NEXT" onclick='next()'>
+  <canvas id ="can" width="300" height="300"></canvas>
+-->
+<header>
+  <nav>
+   <ul>
+     <li><a href="#">TOP</a></li>
+     <li><a href="#">INFORM</a></li>
+     <li><a href="#">MENU</a></li>
+   </ul>
+  </nav>
+  <div id="logo">
+    <a href="test.html">
+    <img src="img/mameichi.png" width="165" height="77">
+    </a></div>
+</header>
+
+<div id="main">
+  <div class="viewer">
+    <ul>
+      <li><img src="img/mameichi.jpg" width="870" height="310"></li>
+      <li><img src="img/pict_1.jpg" width="870" height="310"></li>
+      <li><img src="img/pict_2.jpg" width="870" height="310"></li>
+    </ul>
+  </div><!--/.viewer-->
+<div id="content">
+  <h2>見出し</h2>
+  <p>
+    ああああああああああああああああああああああああああああああああああああああああああああああああああ
+  </p>
+</div><!--#content-->
+</div><!--#main-->
+<footer>
+  <ul>
+    <li><a href="#">TOP</a></li>
+    <li><a href="#">INFORM</a></li>
+    <li><a href="#">MENU</a></li>
+  </ul>
+  <a href="#"><img src="img/icon1.png" width="30" height="30"></a>
+  <a href="#"><img src="img/icon2.png" width="30" height="30"></a>
+</footer>
+</div><!--#wrap-->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+
+    <!-- Bootstrap -->
+    <link href="top2.css" rel="stylesheet">
+    <link href="top.css" rel="stylesheet">
+    <link href="bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="top.js"></script>
+    <script type="text/javascript">
+    function all_submit(){
+
+    var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
+    var bg = document.getElementById("main");
+    var te = document.getElementById("text");
+
+    str1 = document.getElementById("list1").value;
+    str2 = document.getElementById("list2").value;
+    str1 = str1.substring(1);
+    str2 = str2.substring(1);
+    console.log(str2);
+
+    xmlHttp.open('GET','/cgi-bin/r4.rb?str1='+str1+'&str2='+str2);
+    xmlHttp.onreadystatechange=function(){
+    if(xmlHttp.readyState==4){
+      xml = xmlHttp.responseXML;
+      differ = xml.getElementsByTagName("differ")[0].firstChild.nodeValue;
+      differ2 = xml.getElementsByTagName("differ2")[0].firstChild.nodeValue;
+      comment = xml.getElementsByTagName("comment")[0].firstChild.nodeValue;
+      parent.location.reload();
+      console.log(differ);
+      console.log(differ2);
+      console.log(comment);
+      //console.log(score);
+      alert(comment);
+    }
+  }
+  xmlHttp.send(null);
+}
+
+/*function input(){
+  inner = document.getElementById("inner");
+  inner.innerHTML = "<div id='color1'>color1</div>" + "<div id='color2'>color2</div>" + "<div id='color3'>color3</div>";
+}*/
+  </script>
+  </head>
+
+<body>
+
+<div id="main">
+  <div id="change">
+  <form>
+  <ul>
+    <li><input type="color" id="list1" name="str1" list="data1" value="#ffffff"></li>
+    <datalist id="data1">
+
+    </datalist>
+    <li><input type="color" id="list2" name="str2" list="data2" value="#ffffff"></li>
+    <datalist id="data2">
+  
+    </datalist>
+    <input class = "ip_btn" type="button" value="送信" onclick="all_submit()">
+  </ul>
+  </form>
+
+<p id="text">テキストテキストテキストテキストテキストテキストテキスト</p>
+
+<!--<input type = "button" value="色を増やす" onclick="input()">-->
+
+<div id="inner">
+<div id='color1'>color1</div>
+<div id='color2'>color2</div>
+<div id='color3'>color3</div>
+</div><!--#innner-->
+</div><!--#change-->
+</div><!--#main-->
+</body>
+</html>

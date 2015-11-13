@@ -1,0 +1,94 @@
+.viewer {
+    margin: 0 auto;
+    width: 870px;
+    height: 310px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.viewer ul {
+  width: 870px;
+  height: 310px;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.viewer ul li {
+    top: 0;
+    left: 0;
+    width: 870px;
+    height: 310px;
+    display: none;
+    position: absolute;
+}
+
+body{
+    margin:0px;
+    background-image: url("img/bean1.jpg");
+    background-repeat: repeat;
+    font-family:'Lucida Grande',
+   'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+   Meiryo, メイリオ, sans-serif;
+}
+
+#wrap{
+  background-color:#595051;
+  width:870px;
+  height:auto;
+  margin:auto auto;
+  padding: 0px 0px;
+}
+
+header{
+  padding:10px;
+	margin:5px 1%;
+	width:100%;
+}
+
+#icon{
+  float:right;
+}
+
+#main{
+  clear:both;
+  width:100%;
+  height: auto;
+  background-color: #595051;
+}
+#content{
+  background-color: rgb(240, 241, 224);
+  margin-top:0px;
+  margin-bottom: 10px;
+  height:auto;
+  padding:5px 20px;
+}
+footer{
+    border-top: 1px solid rgb(240, 241, 224);
+    padding:10px 20px;
+}
+
+nav{
+  float:right;
+}
+
+nav ul{
+  list-style: none;
+}
+
+nav ul li{
+  display: inline-block;
+  width: 100px;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color:rgb(199, 176, 126);
+  font-family:"Times New Roman", Times, serif;
+  text-align: left;
+}
+
+nav ul li a:hover{
+  color:#ffffff;
+  border-bottom: 2px solid rgb(240, 241, 224);
+}

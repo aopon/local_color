@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+<title>color teacher</title>
+<link href="menu.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="image1.js"></script>
+<script type="text/javascript" src="i_pattern.js"></script>
+<script type="text/javascript" src="message.js"></script>
+<script type="text/javascript" src="scrol.js"></script>
+</head>
+
+<body>
+
+<header>
+  <div id="pict">
+    <a href="#"><img src="img/logo2.png" width="140" height="70"></a>
+  </div>
+  <div id="text">
+    <p id="message">
+    君の好みの色に調整していこう！</br>
+    まずはベースカラー・メインカラー・アクセントカラーを決めるよ！
+    </p>
+  </div><!--#text-->
+  <div id ="detail">
+    <a href="rule.html" target = "main">詳細</a>
+  </div>
+</header>
+
+<div id="wrap">
+<div id="pattern">
+<h4><img src="img/num1.png" width="20" height="20">カラーパターンを指定する</h4>
+<form>
+<!--action="/cgi-bin/menu.rb" method="GET">-->
+<select id="pattern0" onChange="ip_btn()">
+  <option value="">えらんでね</option>
+  <optgroup label="系統で選ぶ">
+  <option value="1">かわいい</option>
+  <option value="2">ポップ</option>
+  <option value="3">モノトーン</option>
+  <option value="4">クール</option>
+  <option value="5">落ち着いた</option>
+  <option value="6">派手</option>
+  <option value="7">クリーン</option>
+  <option value="8">自然</option>
+  <option value="9">高級感</option>
+  <option value="10">伝統的</option>
+  </optgroup>
+
+  <optgroup label="基本色で選ぶ">
+  <option value="6">赤</option>
+  <option value="6">オレンジ</option>
+  <option value="7">黄色</option>
+  <option value="7">黄緑</option>
+  <option value="8">緑</option>
+  <option value="7">水色</option>
+  <option value="9">青</option>
+  <option value="9">青紫</option>
+  <option value="10">紫</option>
+  <option value="10">ピンク</option>
+  </optgroup>
+</select>
+<!--<input class = "ip_btn" type = "button" value="送信" onclick="ip_btn()">-->
+</form>
+
+<canvas id="i1" width="230" height="160"></canvas>
+<div id="btn">
+<input class = "btn2" type="button" value="←back" onclick="back()">
+<input class = "btn2" type="button" value="next→" onclick="next()">
+</div><!--#btn-->
+
+</div><!--#pattern-->
+
+<div id="con_change">
+<h4><img src="img/num2.png" width="20" height="20">各コンテンツの色を調整する</h4>
+<canvas id="i2" width="20" height="300"></canvas>
+<ul id="item">
+<!--<li id="con1" onmouseover="alert('背景なう')">-->
+<li>背景</li>
+<li>ロゴ</li>
+<li>ヘッダー</li>
+<li>ナビゲーション</li>
+<li>見出し</li>
+<li>テキスト</li>
+<li>フッター</li>
+<li>ボタン1 <input class = "plus" type="button" value="+" onclick="multi(num)"></li>
+<div class="multi"></div>
+</ul>
+
+<div id="change">
+<form>
+<ul>
+  <li><input type="color" id="list1" name="base" list="data1" value="#ffffff" onchange="all_submit()"　onclick="c1()"></li>
+  <datalist id="data1">
+  </datalist>
+
+  <li><input type="color" id="list2" name="logo" list="data2" value="#ffffff" onchange="all_submit()"　onclick="c2()"></li>
+  <datalist id="data2">
+  </datalist>
+
+  <li><input type="color" id="list3" name="head" list="data3" value="#ffffff" onchange="all_submit()"　onclick="c3()"></li>
+  <datalist id="data3">
+  </datalist>
+
+  <li><input type="color" id="list4" name="navi" list="data4" value="#ffffff" onchange="all_submit()"　onclick="c4()"></li>
+  <datalist id="data4">
+  </datalist>
+
+  <li><input type="color" id="list5" name="h_text" list="data5" value="#ffffff" onchange="all_submit()"　onclick="c5()"></li>
+  <datalist id="data5">
+  </datalist>
+
+  <li><input type="color" id="list6" name="m_text" list="data6" value="#ffffff" onchange="all_submit()"　onload="c6()"></li>
+  <datalist id="data6">
+    <option value="#000000"></option>
+    <option value="#141414"></option>
+    <option value="#282828"></option>
+    <option value="#3c3c3c"></option>
+    <option value="#505050"></option>
+    <option value="#696969"></option>
+    <option value="#808080"></option>
+    <option value="#a9a9a9"></option>
+    <option value="#c0c0c0"></option>
+    <option value="#d3d3d3"></option>
+    <option value="#dcdcdc"></option>
+    <option value="#f5f5f5"></option>
+    <option value="#ffffff"></option>
+  </datalist>
+
+  <li><input type="color" id="list7" name="foot" list="data7" value="#ffffff" onchange="all_submit()"　onclick="c7()"></li>
+  <datalist id="data7">
+  </datalist>
+
+  <li><input type="color" id="list8" name="btn" list="data8" value="#ffffff" onchange="all_submit()"　onclick="c8()"></li>
+  <datalist id="data8">
+  </datalist>
+
+  <div class="multi">
+  </div>
+  <input class = "ip_btn" type="button" value="初期値に戻す" onclick="first()">
+  <input class = "ip_btn" type="button" value="送信" onclick="all_submit()">
+</ul>
+</form>
+</div><!--#change-->
+</div><!--#con_change-->
+
+</div><!--#wrap-->
+</body>
+</html>
