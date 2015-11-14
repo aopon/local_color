@@ -22,6 +22,7 @@ function ip_btn() {
       content(num);
       all_submit();
       cc1(num);
+      minus();
       parent.main.location.reload();
   	  }
     }
@@ -71,7 +72,13 @@ function content(i){
     document.getElementById("list8").value = a1;
   }
 
-function first(){
+function first(i){
+  var flag = confirm("本当に初期化してもよろしいですか？\n");
+  if (flag == true){
+    first_content(i);
+  }
+}
+function first_content(i){
   document.getElementById("list1").value = b1;
   document.getElementById("list2").value = m1;
   document.getElementById("list3").value = m1;
@@ -80,7 +87,7 @@ function first(){
   document.getElementById("list6").value = "#000000";
   document.getElementById("list7").value = m1;
   document.getElementById("list8").value = a1;
-  all_submit();
+  all_submit(i);
 }
 
 function display(index){

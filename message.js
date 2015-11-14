@@ -32,7 +32,6 @@ function cc1(i){
   }
 }
 
-var btn2;
 function multi(i){
   var xmlHttp = new XMLHttpRequest();
   var multi = document.getElementsByClassName("multi");
@@ -47,7 +46,7 @@ function multi(i){
   }
   multi[0].innerHTML = '<li>ボタン2 <input class="plus" type="button" value="-" onclick="minus()"></li>';
 
-  multi[1].innerHTML = '<li><input type="color" id="list9" name="btn2" list="data9" value="#ffffff" onclick="c9()"></li><datalist id="data9"></datalist>';
+  multi[1].innerHTML = '<li><input type="color" id="list9" name="btn2" list="data9" value="#ffffff" onchange="btn2_submit()" onclick="c9()"></li><datalist id="data9"></datalist>';
 
   var data9 = document.getElementById('data9');
   for(i = 0; i < colorList.length; i++){
@@ -63,6 +62,20 @@ function multi(i){
       document.getElementById("list9").value = a2;
       ctx.fillStyle = a2; //button2
       ctx.fillRect(0, 240, 20, 20);
+    }
+  }
+  xmlHttp.send(null);
+}
+
+function btn2_submit(){
+  var xmlHttp = new XMLHttpRequest();
+  var btn2 = document.getElementById("list9").value;
+  btn2 = btn2.substring(1);
+  xmlHttp.open('GET','/cgi-bin/mult.rb?btn2='+btn2,true);
+  xmlHttp.onreadystatechange = function(){
+    if(xmlHttp.readyState==4){
+      parent.main.location.reload();
+      //alert(btn2);
     }
   }
   xmlHttp.send(null);
@@ -115,4 +128,6 @@ function c6(){
 function c7(){ //
 }
 function c8(){
+}
+function c9(){
 }
