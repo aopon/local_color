@@ -7,7 +7,7 @@ var colorList;
 function ip_btn() {
   var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
 	var kind = document.getElementById("pattern0").value;
-  xmlHttp.open('GET','/cgi-bin/r2.rb?k='+
+  xmlHttp.open('GET','/cgi-bin/get_bma.rb?k='+
   kind,true);
 	xmlHttp.onreadystatechange=function(){ /*小僧が持ってくる動作*/
   	if(xmlHttp.readyState==4){

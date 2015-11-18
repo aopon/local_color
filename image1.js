@@ -40,7 +40,7 @@ function value_diff(){
   str1 = str1.substring(1);
   str2 = str2.substring(1);
 
-  xmlHttp.open('GET','/cgi-bin/r3.rb?str1='+str1+'&str2='+str2);
+  xmlHttp.open('GET','/cgi-bin/output.rb?str1='+str1+'&str2='+str2);
   xmlHttp.onreadystatechange=function(){
   if(xmlHttp.readyState==4){
     xml = xmlHttp.responseXML;
@@ -50,6 +50,7 @@ function value_diff(){
     var text = document.getElementById('text');
     text.innerText = value;
     console.log(hsv);
+
   }
   }
   xmlHttp.send(null);

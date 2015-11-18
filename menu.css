@@ -12,20 +12,20 @@ header{
 	padding-top: 10px 10px;
 	position: fixed;
 	z-index: 1;
-	width: 100%;
+	width: 95%;
 }
 
 #text{
 	background-color: #ffffff;
-	font-size: 11px;
+	font-size: 13px;
 	margin:10px 10px;
-	padding: 1px 10px;
+	padding: 5px 7px;
 	border-radius: 5px;
 }
 
-#message {
+/*#text {
 	width:100%;
-}
+}*/
 
 #detail a{
 	font-size: 8px;
@@ -43,7 +43,7 @@ header{
 	/*border:1px #ffffff solid;*/
 	clear:both;
 	margin-top: auto;
-	padding-top: auto;
+	padding-top: 200px;
 	padding-left:10px;
 	padding-right:10px;
 }
