@@ -1,5 +1,5 @@
 // JavaScript Document
-function all_submit() {
+function all_submit() {　//すべてのコンテンツを一括送信
   var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
   var base = document.getElementById("list1").value;
   var logo = document.getElementById("list2").value;
@@ -22,7 +22,6 @@ function all_submit() {
   xmlHttp.open('GET','/cgi-bin/c_color.rb?base='+base+'&logo='+logo+'&head='+head+'&navi='+navi+'&h_text='+h_text+'&m_text='+m_text+'&foot='+foot+'&btn='+btn,true);
 
   xmlHttp.onreadystatechange=function(){ /*小僧が持ってくる動作*/
-
     if(xmlHttp.readyState==4){
       value_diff();
       parent.main.location.reload();
@@ -32,7 +31,7 @@ function all_submit() {
   xmlHttp.send(null);
 }
 
-function value_diff(){
+function value_diff(){ //明度差の判定出力
   var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
 
   str1 = document.getElementById("list1").value;
@@ -47,9 +46,13 @@ function value_diff(){
 //    put = xml.getElementsByTagName("put")[0].firstChild.nodeValue;
     hsv = xml.getElementsByTagName("hsv")[0].firstChild.nodeValue;
     value = xml.getElementsByTagName("value")[0].firstChild.nodeValue;
+    score = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
     var text = document.getElementById('text');
     text.innerText = value;
     console.log(hsv);
+    var in_score = document.getElementById('score');
+    in_score.innerText = score;
+    //alert(score);
 
   }
   }

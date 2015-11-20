@@ -1,4 +1,4 @@
-function cc1(i){
+function cc1(i){ //色のデータリスト出力
   var data1 = document.getElementById('data1');
   var data2 = document.getElementById('data2');
   var data3 = document.getElementById('data3');
@@ -32,7 +32,7 @@ function cc1(i){
   }
 }
 
-function multi(i){
+function multi(i){　//プラスボタンを押したときの処理
   var xmlHttp = new XMLHttpRequest();
   var multi = document.getElementsByClassName("multi");
   var canvas = document.getElementById("i2");
@@ -46,7 +46,7 @@ function multi(i){
   }
   multi[0].innerHTML = '<li>ボタン2 <input class="plus" type="button" value="-" onclick="minus()"></li>';
 
-  multi[1].innerHTML = '<li><input type="color" id="list9" name="btn2" list="data9" value="#ffffff" onchange="btn2_submit()" onclick="c9()"></li><datalist id="data9"></datalist>';
+  multi[1].innerHTML = '<li><input class="color" type="color" id="list9" name="btn2" list="data9" value="#ffffff" onchange="btn2_submit()" onclick="c9()"></li><datalist id="data9"></datalist>';
 
   var data9 = document.getElementById('data9');
   for(i = 0; i < colorList.length; i++){
@@ -62,20 +62,34 @@ function multi(i){
       document.getElementById("list9").value = a2;
       ctx.fillStyle = a2; //button2
       ctx.fillRect(0, 240, 20, 20);
+      btn2_submit();
     }
   }
   xmlHttp.send(null);
 }
 
-function btn2_submit(){
+function btn2_submit(){　//ボタン２を送信したときの処理
   var xmlHttp = new XMLHttpRequest();
   var btn2 = document.getElementById("list9").value;
+  var di_pict = document.getElementById("di_pict");
+  var di_message = document.getElementById("di_message");
   btn2 = btn2.substring(1);
-  xmlHttp.open('GET','/cgi-bin/mult.rb?btn2='+btn2,true);
+  xmlHttp.open('GET','/cgi-bin/diard.rb?btn2='+btn2+'&m1='+m1.substring(1),true);
   xmlHttp.onreadystatechange = function(){
     if(xmlHttp.readyState==4){
+      xml = xmlHttp.responseXML;
+      judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
+      diard = xml.getElementsByTagName("diard")[0].firstChild.nodeValue;
+      console.log(judge);
+      console.log(diard);
+      text.innerText = judge;
+      di_pict.innerHTML = '<canvas id= "di_canvas" width="45" height="45"></canvas>';
+      di_message.innerText = "アクセントカラーをこの色に近づけると良くなるよ〜";
+      var canvas = document.getElementById("di_canvas");
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = diard; //button
+      ctx.fillRect(0,0,35,35);
       parent.main.location.reload();
-      //alert(btn2);
     }
   }
   xmlHttp.send(null);

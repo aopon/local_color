@@ -2,41 +2,52 @@
 /* CSS Document */
 
 body{
-	background-color:#c0c0c0;
-	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	background-color:#dcdcdc;
+	/*font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;*/
+	font-family: 'ヒラギノ丸ゴ Pro W4','Hiragino Maru Gothic Pro';
 	color: #333333;
 }
 
 header{
-	background-color:rgba(192,192,192,0.9);
+	background-color:rgba(220,220,220,0.9);
 	padding-top: 10px 10px;
 	position: fixed;
 	z-index: 1;
 	width: 95%;
 }
 
-#text{
+#good{
+	float:right;
+}
+
+#pict a{
+	margin-right:10px;
+}
+
+#score{
+	position: relative;
+	bottom: 65px;
+	left:165px;
+	font-size: 18px;
+	color: #ff5757;
+	font-weight: bold;
+	font-family: 'Comic Sans MS';
+}
+
+#message{
 	background-color: #ffffff;
 	font-size: 13px;
 	margin:10px 10px;
-	padding: 5px 7px;
+	padding: 1px 10px;
 	border-radius: 5px;
 }
 
-/*#text {
-	width:100%;
-}*/
-
-#detail a{
-	font-size: 8px;
-	float: right;
-	margin-bottom: 10px;
-	color:#000000;
-	margin-right: 20px;
+#di_pict{
+	float: left;
+	padding-top: 3px;
 }
 
-#detail a:hover{
-	color:rgb(255, 177, 74);
+#di_message{
 }
 
 #wrap{
@@ -117,6 +128,10 @@ h4{
 
 #change{
 	text-align:right;
+}
+
+#change form{
+	padding-bottom: 20px;
 }
 
 #con_change li:hover{
@@ -200,5 +215,43 @@ input.btn2:hover{
 	background: #eee;
 	background: url(img/icon3.png) 125px 7px no-repeat;
 	background-size:15px 10px;
+	outline: 0px none transparent;
+}
+
+input.plus{
+	width: 20px;
+	height: 20px;
+	padding:2px 2px;
+	background:#ffffff;
+	border: solid 1px #999;
+	color:#767477;
+	border-radius: 2px;
+	outline: 0px none transparent;
+}
+
+input.plus:hover{
+	padding:3px 3px;
+	background:rgb(93, 93, 93);
+	border: solid 1px rgb(93, 93, 93);
+	color:#ffffff;
+	border-radius: 2px;
+	outline: 0px none transparent;
+}
+
+input.color{
+	height:20px;
+	background:#ffffff;
+	border: solid 1px #999;
+	color:#767477;
+	border-radius: 5px;
+	outline: 0px none transparent;
+}
+
+input.color:hover{
+	height:20px;
+	background:rgb(93, 93, 93);
+	border: solid 1px rgb(93, 93, 93);
+	color:#ffffff;
+	border-radius: 5px;
 	outline: 0px none transparent;
 }

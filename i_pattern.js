@@ -76,6 +76,7 @@ function first(i){
   var flag = confirm("本当に初期化してもよろしいですか？\n");
   if (flag == true){
     first_content(i);
+    minus();
   }
 }
 function first_content(i){

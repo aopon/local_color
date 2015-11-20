@@ -13,20 +13,23 @@
 </head>
 
 <body>
-
 <header>
+<!--  <div id="good">
+    <a href="#"><img src="img/good.png" width="24" height="24"></a>
+  </div><!--#good-->
   <div id="pict">
     <a href="#"><img src="img/logo2.png" width="140" height="70"></a>
-  </div>
+    <a href="#"><img src="img/score.png" width="70" height="70"/></a>
+    <p id="score">0<p>
+  </div><!--#pict-->
   <div id="message">
     <p id="text">
-    君の好みの色に調整していこう！</br>
+    君の好みの色に調整していこう！
     まずはベースカラー・メインカラー・アクセントカラーを決めるよ！
     </p>
-  </div><!--#text-->
-  <div id ="detail">
-    <a href="rule.html" target = "main">詳細</a>
-  </div>
+    <div id="di_pict"></div>
+    <div id="di_message"></div>
+  </div><!--#message-->
 </header>
 
 <div id="wrap">
@@ -92,27 +95,27 @@
 <div id="change">
 <form>
 <ul>
-  <li><input type="color" id="list1" name="base" list="data1" value="#ffffff" onchange="all_submit()"　onclick="c1()"></li>
+  <li><input class="color" type="color" id="list1" name="base" list="data1" value="#ffffff" onchange="all_submit()"　onclick="c1()"></li>
   <datalist id="data1">
   </datalist>
 
-  <li><input type="color" id="list2" name="logo" list="data2" value="#ffffff" onchange="all_submit()"　onclick="c2()"></li>
+  <li><input class="color" type="color" id="list2" name="logo" list="data2" value="#ffffff" onchange="all_submit()"　onclick="c2()"></li>
   <datalist id="data2">
   </datalist>
 
-  <li><input type="color" id="list3" name="head" list="data3" value="#ffffff" onchange="all_submit()"　onclick="c3()"></li>
+  <li><input class="color" type="color" id="list3" name="head" list="data3" value="#ffffff" onchange="all_submit()"　onclick="c3()"></li>
   <datalist id="data3">
   </datalist>
 
-  <li><input type="color" id="list4" name="navi" list="data4" value="#ffffff" onchange="all_submit()"　onclick="c4()"></li>
+  <li><input class="color" type="color" id="list4" name="navi" list="data4" value="#ffffff" onchange="all_submit()"　onclick="c4()"></li>
   <datalist id="data4">
   </datalist>
 
-  <li><input type="color" id="list5" name="h_text" list="data5" value="#ffffff" onchange="all_submit()"　onclick="c5()"></li>
+  <li><input class="color" type="color" id="list5" name="h_text" list="data5" value="#ffffff" onchange="all_submit()"　onclick="c5()"></li>
   <datalist id="data5">
   </datalist>
 
-  <li><input type="color" id="list6" name="m_text" list="data6" value="#ffffff" onchange="all_submit()"　onload="c6()"></li>
+  <li><input class="color" type="color" id="list6" name="m_text" list="data6" value="#ffffff" onchange="all_submit()"　onload="c6()"></li>
   <datalist id="data6">
     <option value="#000000"></option>
     <option value="#141414"></option>
@@ -129,20 +132,21 @@
     <option value="#ffffff"></option>
   </datalist>
 
-  <li><input type="color" id="list7" name="foot" list="data7" value="#ffffff" onchange="all_submit()"　onclick="c7()"></li>
+  <li><input class="color" type="color" id="list7" name="foot" list="data7" value="#ffffff" onchange="all_submit()"　onclick="c7()"></li>
   <datalist id="data7">
   </datalist>
 
-  <li><input type="color" id="list8" name="btn" list="data8" value="#ffffff" onchange="all_submit()"　onclick="c8()"></li>
+  <li><input class="color" type="color" id="list8" name="btn" list="data8" value="#ffffff" onchange="all_submit()"　onclick="c8()"></li>
   <datalist id="data8">
   </datalist>
 
   <div class="multi">
   </div>
-  <input class = "ip_btn" type="button" value="初期値に戻す" onclick="first()">
-  <input class = "ip_btn" type="button" value="送信" onclick="all_submit()">
 </ul>
 </form>
+
+<input class = "ip_btn" type="button" value="初期値に戻す" onclick="first()">
+<input class = "ip_btn" type="button" value="送信" onclick="all_submit()">
 </div><!--#change-->
 </div><!--#con_change-->
 
