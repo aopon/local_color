@@ -16,7 +16,7 @@ function cc1(i){ //色のデータリスト出力
   //data6.innerHTML = "" ;
   data7.innerHTML = "" ;
   data8.innerHTML = "" ;
-
+  data1.innerHTML = "<option value='#ffffff'></option>";
   for(i = 0; i < colorList.length; i++){
     b_color = color_b[i].childNodes[0].nodeValue;
     m_color = color_m[i].childNodes[0].nodeValue;
@@ -26,7 +26,6 @@ function cc1(i){ //色のデータリスト出力
     data3.innerHTML = data3.innerHTML + "<option value='"+m_color+"'></option>";
     data4.innerHTML = data4.innerHTML + "<option value='"+m_color+"'></option>";
     data5.innerHTML = data5.innerHTML + "<option value='"+m_color+"'></option>";
-    //data6.innerHTML = data6.innerHTML + "<option value='#000000'></option>";
     data7.innerHTML = data7.innerHTML + "<option value='"+m_color+"'></option>";
     data8.innerHTML = data8.innerHTML + "<option value='"+a_color+"'></option>";
   }
@@ -46,7 +45,7 @@ function multi(i){　//プラスボタンを押したときの処理
   }
   multi[0].innerHTML = '<li>ボタン2 <input class="plus" type="button" value="-" onclick="minus()"></li>';
 
-  multi[1].innerHTML = '<li><input class="color" type="color" id="list9" name="btn2" list="data9" value="#ffffff" onchange="btn2_submit()" onclick="c9()"></li><datalist id="data9"></datalist>';
+  multi[1].innerHTML = '<li><input class="color" type="color" id="list9" name="btn2" list="data9" value="#ffffff" onchange="btn2_submit()" onmouseover="c1(9)"></li><datalist id="data9"></datalist>';
 
   var data9 = document.getElementById('data9');
   for(i = 0; i < colorList.length; i++){
@@ -115,33 +114,57 @@ function minus(){
   xmlHttp.send(null);
 }
 
-function c1(){ //base
+function c1(c){ //マウスオーバーしたときの処理
   var text = document.getElementById('text');
+  if (c == "1"){
   text.innerText="ベースカラーは背景に使われるよ！この色はメインカラーの薄い色や白を使うとにすると全体がまとまるよ！";
+  mouseover(c);
+  }
+  else if (c == "2"){
+  text.innerText="サイト全体をロゴの色に合わせるとまとまるよ！";
+  mouseover(c);
+  }
+  else if (c == "3"){
+  text.innerText="ロゴの色はメインになるカラーだよ。ハッキリ見える色にするために、ヘッダーの色とロゴは明度差を付けてあげよう";
+  mouseover(c);
+  }
+  else if (c == "4"){
+  text.innerText="ナビゲーションと背景のコントラストを大きくとる事を意識しよう！";
+  mouseover(c);
+  }
+  else if (c == "5"){
+  text.innerText="見出しはハッキリと目立つようにしよう！";
+  mouseover(c);
+  }
+  else if (c == "6"){
+  text.innerText="テキストは背景とのコントラストを付けよう";
+  mouseover(c);
+  }
+  else if (c == "7"){
+  text.innerText="フッターだよん";
+  mouseover(c);
+  }
+  else if (c == "8"){
+  text.innerText="ボタン１だよん";
+  mouseover(c);
+  }
+  else if (c == "9"){
+  text.innerText="ボタン２だよん";
+  mouseover(c);
+  }
 }
 
-function c2(){ //logo
-  var text = document.getElementById('text');
-  console.log(this);
-  text.innerText ="サイト全体をロゴの色に合わせるとまとまるよ！";
+function mouseover(c){
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open('GET','/cgi-bin/mouseover.rb?c='+c,true);
+  xmlHttp.onreadystatechange=function(){
+    if(xmlHttp.readyState==4){
+      parent.main.location.reload();
+    }
+  }
+  xmlHttp.send(null);
 }
-function c3(){
-  var text = document.getElementById('text');
-  console.log(this);
-  text.innerText ="ロゴの色はメインになるカラーだよ。ハッキリ見える色にするために、ヘッダーの色とロゴは明度差を付けてあげよう";
-}
-function c4(){
-}
-function c5(){
-}
-function c6(){
-  var text = document.getElementById('text');
-  value = xml.getElementsByTagName("value")[0].firstChild.nodeValue;
-  text.innerText = value;
-}
-function c7(){ //
-}
-function c8(){
-}
-function c9(){
+
+function out(){
+  mouseover(null);
 }

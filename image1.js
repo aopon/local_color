@@ -26,6 +26,7 @@ function all_submit() {　//すべてのコンテンツを一括送信
       value_diff();
       parent.main.location.reload();
       xml = xmlHttp.responseXML;
+      out();
     }
   }
   xmlHttp.send(null);
@@ -52,9 +53,7 @@ function value_diff(){ //明度差の判定出力
     console.log(hsv);
     var in_score = document.getElementById('score');
     in_score.innerText = score;
-    //alert(score);
-
-  }
+    }
   }
   xmlHttp.send(null);
 }

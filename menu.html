@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
 <title>color teacher</title>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 <link href="menu.css" rel="stylesheet" type="text/css" media="all"/>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="image1.js"></script>
@@ -39,30 +40,15 @@
 <!--action="/cgi-bin/menu.rb" method="GET">-->
 <select id="pattern0" onChange="ip_btn()">
   <option value="">えらんでね</option>
-  <optgroup label="系統で選ぶ">
-  <option value="1">かわいい</option>
-  <option value="2">ポップ</option>
-  <option value="3">モノトーン</option>
-  <option value="4">クール</option>
-  <option value="5">落ち着いた</option>
-  <option value="6">派手</option>
-  <option value="7">クリーン</option>
-  <option value="8">自然</option>
-  <option value="9">高級感</option>
-  <option value="10">伝統的</option>
-  </optgroup>
-
   <optgroup label="基本色で選ぶ">
-  <option value="6">赤</option>
-  <option value="6">オレンジ</option>
-  <option value="7">黄色</option>
-  <option value="7">黄緑</option>
-  <option value="8">緑</option>
-  <option value="7">水色</option>
-  <option value="9">青</option>
-  <option value="9">青紫</option>
-  <option value="10">紫</option>
-  <option value="10">ピンク</option>
+  <option value="1">赤</option>
+  <option value="2">オレンジ</option>
+  <option value="3">黄色</option>
+  <option value="4">緑</option>
+  <option value="5">水色</option>
+  <option value="6">青</option>
+  <option value="7">紫</option>
+  <option value="8">ピンク</option>
   </optgroup>
 </select>
 <!--<input class = "ip_btn" type = "button" value="送信" onclick="ip_btn()">-->
@@ -95,27 +81,27 @@
 <div id="change">
 <form>
 <ul>
-  <li><input class="color" type="color" id="list1" name="base" list="data1" value="#ffffff" onchange="all_submit()"　onclick="c1()"></li>
+  <li><input class="color" type="color" id="list1" name="base" list="data1" value="#ffffff" onchange="all_submit()" onmouseover="c1(1)"></li>
   <datalist id="data1">
   </datalist>
 
-  <li><input class="color" type="color" id="list2" name="logo" list="data2" value="#ffffff" onchange="all_submit()"　onclick="c2()"></li>
+  <li><input class="color" type="color" id="list2" name="logo" list="data2" value="#ffffff" onchange="all_submit()" onmouseover="c1(2)"></li>
   <datalist id="data2">
   </datalist>
 
-  <li><input class="color" type="color" id="list3" name="head" list="data3" value="#ffffff" onchange="all_submit()"　onclick="c3()"></li>
+  <li><input class="color" type="color" id="list3" name="head" list="data3" value="#ffffff" onchange="all_submit()" onmouseover="c1(3)"></li>
   <datalist id="data3">
   </datalist>
 
-  <li><input class="color" type="color" id="list4" name="navi" list="data4" value="#ffffff" onchange="all_submit()"　onclick="c4()"></li>
+  <li><input class="color" type="color" id="list4" name="navi" list="data4" value="#ffffff" onchange="all_submit()" onmouseover="c1(4)"></li>
   <datalist id="data4">
   </datalist>
 
-  <li><input class="color" type="color" id="list5" name="h_text" list="data5" value="#ffffff" onchange="all_submit()"　onclick="c5()"></li>
+  <li><input class="color" type="color" id="list5" name="h_text" list="data5" value="#ffffff" onchange="all_submit()" onmouseover="c1(5)"></li>
   <datalist id="data5">
   </datalist>
 
-  <li><input class="color" type="color" id="list6" name="m_text" list="data6" value="#ffffff" onchange="all_submit()"　onload="c6()"></li>
+  <li><input class="color" type="color" id="list6" name="m_text" list="data6" value="#ffffff" onchange="all_submit()" onmouseover="c1(6)"></li>
   <datalist id="data6">
     <option value="#000000"></option>
     <option value="#141414"></option>
@@ -132,11 +118,11 @@
     <option value="#ffffff"></option>
   </datalist>
 
-  <li><input class="color" type="color" id="list7" name="foot" list="data7" value="#ffffff" onchange="all_submit()"　onclick="c7()"></li>
+  <li><input class="color" type="color" id="list7" name="foot" list="data7" value="#ffffff" onchange="all_submit()" onmouseover="c1(7)"></li>
   <datalist id="data7">
   </datalist>
 
-  <li><input class="color" type="color" id="list8" name="btn" list="data8" value="#ffffff" onchange="all_submit()"　onclick="c8()"></li>
+  <li><input class="color" type="color" id="list8" name="btn" list="data8" value="#ffffff" onchange="all_submit()" onmouseover="c1(8)"></li>
   <datalist id="data8">
   </datalist>
 

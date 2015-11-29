@@ -4,6 +4,10 @@ var m1;
 var a1;
 var colorList;
 
+window.onload = function(){
+  out();
+};
+
 function ip_btn() {
   var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
 	var kind = document.getElementById("pattern0").value;
@@ -48,11 +52,11 @@ function content(i){
     a1 = color_a[i].childNodes[0].nodeValue;
     ctx.fillStyle = b1; //background
     ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = m1; //logo
+    ctx.fillStyle = "#ffffff"; //logo
     ctx.fillRect(0, 30, w, h);
     ctx.fillStyle = m1; //header
     ctx.fillRect(0, 60, w, h);
-    ctx.fillStyle = m1; //navigation
+    ctx.fillStyle = "#ffffff"; //navigation
     ctx.fillRect(0, 90, w, h);
     ctx.fillStyle = m1; //head text
     ctx.fillRect(0, 120, w, h);
@@ -63,9 +67,9 @@ function content(i){
     ctx.fillStyle = a1; //button
     ctx.fillRect(0, 210, w, h);
     document.getElementById("list1").value = b1;
-    document.getElementById("list2").value = m1;
+    document.getElementById("list2").value = "#ffffff";
     document.getElementById("list3").value = m1;
-    document.getElementById("list4").value = m1;
+    document.getElementById("list4").value = "#ffffff";
     document.getElementById("list5").value = m1;
     document.getElementById("list6").value = "#000000";
     document.getElementById("list7").value = m1;
@@ -81,9 +85,9 @@ function first(i){
 }
 function first_content(i){
   document.getElementById("list1").value = b1;
-  document.getElementById("list2").value = m1;
+  document.getElementById("list2").value = "#ffffff";
   document.getElementById("list3").value = m1;
-  document.getElementById("list4").value = m1;
+  document.getElementById("list4").value = "#ffffff";
   document.getElementById("list5").value = m1;
   document.getElementById("list6").value = "#000000";
   document.getElementById("list7").value = m1;
@@ -110,6 +114,7 @@ function display(index){
     stroke(num);
     content(num);
     all_submit();
+    minus();
   }
 
   function next(){
@@ -118,6 +123,7 @@ function display(index){
     stroke(num);
     content(num);
     all_submit();
+    minus();
   }
 
 function bma_bar(i){
