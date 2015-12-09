@@ -81,6 +81,7 @@ function first(i){
   if (flag == true){
     first_content(i);
     minus();
+    all_submit();
   }
 }
 function first_content(i){
@@ -92,7 +93,6 @@ function first_content(i){
   document.getElementById("list6").value = "#000000";
   document.getElementById("list7").value = m1;
   document.getElementById("list8").value = a1;
-  all_submit(i);
 }
 
 function display(index){

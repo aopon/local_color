@@ -23,20 +23,120 @@ function all_submit() {　//すべてのコンテンツを一括送信
 
   xmlHttp.onreadystatechange=function(){ /*小僧が持ってくる動作*/
     if(xmlHttp.readyState==4){
-      value_diff();
-      parent.main.location.reload();
       xml = xmlHttp.responseXML;
+      parent.main.location.reload();
       out();
+      input_hex();
     }
   }
   xmlHttp.send(null);
 }
 
-function value_diff(){ //明度差の判定出力
-  var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
+function input_hex(){
+  var hex = document.getElementsByClassName("hex");
+  hex[0].innerText = b1;//base
+  hex[1].innerText = m1;//logo
+  hex[2].innerText = m1;//header
+  hex[3].innerText = m1;//navi
+  hex[4].innerText = m1;//h_text
+  hex[5].innerText = m1;//m_text
+  hex[6].innerText = m1;//footer
+  hex[7].innerText = a1;//btn1
+}
 
+function part_submit(c){ //各コンテンツの色塗り替え
+  var xmlHttp = new XMLHttpRequest();
+  var hex = document.getElementsByClassName("hex");
+
+  if (c =="1"){
+    var part = document.getElementById("list1").value;
+    hex[0].innerText = part;
+  }
+  else if (c == "2") {
+    var part = document.getElementById("list2").value;
+    hex[1].innerText = part;
+  }
+  else if (c == "3") {
+    var part = document.getElementById("list3").value;
+    hex[2].innerText = part;
+    main_color(c);
+  }
+  else if (c == "4") {
+    var part = document.getElementById("list4").value;
+    hex[3].innerText = part;
+  }
+  else if (c == "5") {
+    var part = document.getElementById("list5").value;
+    hex[4].innerText = part;
+    value_diff(c);
+  }
+  else if (c == "6") {
+    var part = document.getElementById("list6").value;
+    hex[5].innerText = part;
+    value_diff(c);
+  }
+  else if (c == "7") {
+    var part = document.getElementById("list7").value;
+    hex[6].innerText = part;
+    main_color(c);
+  }
+  else if (c == "8") {
+    var part = document.getElementById("list8").value;
+    hex[7].innerText = part;
+    btn2_submit(c);
+  }
+
+  part = part.substring(1);
+  xmlHttp.open('GET','/cgi-bin/part_submit.rb?c='+c+'&part='+part,true);
+  xmlHttp.onreadystatechange=function(){
+    if(xmlHttp.readyState==4){
+      parent.main.location.reload();
+    }
+  }
+  xmlHttp.send(null);
+}
+
+function c3_first(){
+  part_submit(null);
+}
+
+function main_color(c){　//類似色判定の処理
+  var xmlHttp = new XMLHttpRequest();
+  if(c == "3"){
+    var main = document.getElementById("list3").value;
+  }
+  else if(c == "5"){
+    var main = document.getElementById("list5").value;
+  }
+  else if(c == "7"){
+    var main = document.getElementById("list7").value;
+  }
+  main = main.substring(1);
+  xmlHttp.open('GET','/cgi-bin/similar.rb?main='+main+'&m1='+m1.substring(1),true);
+  xmlHttp.onreadystatechange = function(){
+    if(xmlHttp.readyState==4){
+      xml = xmlHttp.responseXML;
+      judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
+      score2 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
+      console.log(judge);
+      text.innerHTML = "<p>"+ judge +"</p>";
+      var in_score = document.getElementById('score');
+      in_score.innerText = score2;
+      parent.main.location.reload();
+    }
+  }
+  xmlHttp.send(null);
+}
+
+function value_diff(c){ //明度差,色差の判定出力
+  var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
+  if(c == "5"){
+    str2 = document.getElementById("list5").value;
+  }
+  else if(c == "6"){
+    str2 = document.getElementById("list6").value;
+  }
   str1 = document.getElementById("list1").value;
-  str2 = document.getElementById("list6").value;
   str1 = str1.substring(1);
   str2 = str2.substring(1);
 
@@ -44,7 +144,6 @@ function value_diff(){ //明度差の判定出力
   xmlHttp.onreadystatechange=function(){
   if(xmlHttp.readyState==4){
     xml = xmlHttp.responseXML;
-//    put = xml.getElementsByTagName("put")[0].firstChild.nodeValue;
     hsv = xml.getElementsByTagName("hsv")[0].firstChild.nodeValue;
     value = xml.getElementsByTagName("value")[0].firstChild.nodeValue;
     score = xml.getElementsByTagName("score")[0].lastChild.nodeValue;

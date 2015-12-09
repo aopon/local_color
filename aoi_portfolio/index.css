@@ -87,8 +87,12 @@ nav li a{
 .sec{
   float:left;
   width:230px;
-  margin-right: 15px;
+  margin-right:35px;
   margin-bottom:20px;
+}
+
+.sec:last-child{
+  margin-right:auto;
 }
 
 .m_text{

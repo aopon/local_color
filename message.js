@@ -34,8 +34,10 @@ function cc1(i){ //色のデータリスト出力
 function multi(i){　//プラスボタンを押したときの処理
   var xmlHttp = new XMLHttpRequest();
   var multi = document.getElementsByClassName("multi");
+  var advice = document.getElementById("advice");
   var canvas = document.getElementById("i2");
   var ctx = canvas.getContext('2d');
+  var hex = document.getElementsByClassName("hex");
 
   if (1 <= i+1 && i+1 < colorList.length){
     a2 = color_a[i+1].childNodes[0].nodeValue;
@@ -47,31 +49,40 @@ function multi(i){　//プラスボタンを押したときの処理
 
   multi[1].innerHTML = '<li><input class="color" type="color" id="list9" name="btn2" list="data9" value="#ffffff" onchange="btn2_submit()" onmouseover="c1(9)"></li><datalist id="data9"></datalist>';
 
+  advice.innerText = "ボタン２を追加してアクセントカラーを1色増やす場合は、全体のバランスが崩れないようにボタン1とボタン2の色を類似色にするよ！";
   var data9 = document.getElementById('data9');
   for(i = 0; i < colorList.length; i++){
-    a1 = color_a[i].childNodes[0].nodeValue;
-    data9.innerHTML = data9.innerHTML + "<option value='"+a1+"'></option>";
+    a_color = color_a[i].childNodes[0].nodeValue;
+    data9.innerHTML = data9.innerHTML + "<option value='"+a_color+"'></option>";
   }
   String(btn2);
   var btn2 = a2.substring(1);
+  hex[8].innerText = "#" + btn2;
+  document.getElementById("list9").value = a2;
+  ctx.fillStyle = a2; //button2
+  ctx.fillRect(0, 240, 20, 20);
+
   xmlHttp.open('GET','/cgi-bin/mult.rb?btn2='+btn2,true);
   xmlHttp.onreadystatechange = function(){
     if(xmlHttp.readyState==4){
       parent.main.location.reload();
-      document.getElementById("list9").value = a2;
-      ctx.fillStyle = a2; //button2
-      ctx.fillRect(0, 240, 20, 20);
-      btn2_submit();
     }
   }
   xmlHttp.send(null);
 }
 
-function btn2_submit(){　//ボタン２を送信したときの処理
+var score;
+var score2;
+function btn2_submit(c){　//ボタン２を送信したときの処理
   var xmlHttp = new XMLHttpRequest();
-  var btn2 = document.getElementById("list9").value;
-  var di_pict = document.getElementById("di_pict");
-  var di_message = document.getElementById("di_message");
+  if(c == "8"){
+    var btn2 = document.getElementById("list8").value;
+  }
+  else {
+    var btn2 = document.getElementById("list9").value;
+    var hex = document.getElementsByClassName("hex");
+    hex[8].innerText = btn2;
+  }
   btn2 = btn2.substring(1);
   xmlHttp.open('GET','/cgi-bin/diard.rb?btn2='+btn2+'&m1='+m1.substring(1),true);
   xmlHttp.onreadystatechange = function(){
@@ -79,15 +90,11 @@ function btn2_submit(){　//ボタン２を送信したときの処理
       xml = xmlHttp.responseXML;
       judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
       diard = xml.getElementsByTagName("diard")[0].firstChild.nodeValue;
-      console.log(judge);
-      console.log(diard);
-      text.innerText = judge;
-      di_pict.innerHTML = '<canvas id= "di_canvas" width="45" height="45"></canvas>';
-      di_message.innerText = "アクセントカラーをこの色に近づけると良くなるよ〜";
-      var canvas = document.getElementById("di_canvas");
-      var ctx = canvas.getContext('2d');
-      ctx.fillStyle = diard; //button
-      ctx.fillRect(0,0,35,35);
+      score3 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
+      text.innerHTML = judge;
+
+      var in_score = document.getElementById('score');
+      in_score.innerText = score3;
       parent.main.location.reload();
     }
   }
@@ -100,11 +107,14 @@ function minus(){
   var ctx = canvas.getContext('2d');
   var multi = document.getElementsByClassName("multi");
   var btn = document.getElementById("list8").value;
+  var hex = document.getElementsByClassName("hex");
+
   btn = btn.substring(1);
   multi[0].innerHTML = "";
   multi[1].innerHTML = "";
   ctx.fillStyle = "#ffffff"; //button
   ctx.fillRect(0,240,20,20);
+  hex[8].innerText="";
   xmlHttp.open('GET','/cgi-bin/minus.rb?btn2='+btn,true);
   xmlHttp.onreadystatechange=function(){
     if(xmlHttp.readyState==4){
@@ -115,41 +125,41 @@ function minus(){
 }
 
 function c1(c){ //マウスオーバーしたときの処理
-  var text = document.getElementById('text');
+  var advice = document.getElementById('advice');
   if (c == "1"){
-  text.innerText="ベースカラーは背景に使われるよ！この色はメインカラーの薄い色や白を使うとにすると全体がまとまるよ！";
+  advice.innerText="ベースカラーは背景に使われるよ！この色はメインカラーの薄い色や白を使うとにすると全体がまとまるよ！";
   mouseover(c);
   }
   else if (c == "2"){
-  text.innerText="サイト全体をロゴの色に合わせるとまとまるよ！";
+  advice.innerText="サイト全体をロゴの色に合わせるとまとまるよ！";
   mouseover(c);
   }
   else if (c == "3"){
-  text.innerText="ロゴの色はメインになるカラーだよ。ハッキリ見える色にするために、ヘッダーの色とロゴは明度差を付けてあげよう";
+  advice.innerText="ロゴの色はメインになるカラーだよ。ハッキリ見える色にするために、ヘッダーの色とロゴは明度差を付けてあげよう";
   mouseover(c);
   }
   else if (c == "4"){
-  text.innerText="ナビゲーションと背景のコントラストを大きくとる事を意識しよう！";
+  advice.innerText="ナビゲーションと背景のコントラストを大きくとる事を意識しよう！";
   mouseover(c);
   }
   else if (c == "5"){
-  text.innerText="見出しはハッキリと目立つようにしよう！";
+  advice.innerText="見出しはハッキリと目立つようにしよう！";
   mouseover(c);
   }
   else if (c == "6"){
-  text.innerText="テキストは背景とのコントラストを付けよう";
+  advice.innerText="テキストは背景とのコントラストを付けよう";
   mouseover(c);
   }
   else if (c == "7"){
-  text.innerText="フッターだよん";
+  advice.innerText="フッターだよん";
   mouseover(c);
   }
   else if (c == "8"){
-  text.innerText="ボタン１だよん";
+  advice.innerText="クリックボタンはサイト全体のアクセントとなる色だよ。彩度と明度を高くして目立たせてあげよう！";
   mouseover(c);
   }
   else if (c == "9"){
-  text.innerText="ボタン２だよん";
+  advice.innerText="ボタン２を追加してアクセントカラーを1色増やす場合は、全体のバランスが崩れないようにボタン1とボタン2の色を類似色にするよ！";
   mouseover(c);
   }
 }

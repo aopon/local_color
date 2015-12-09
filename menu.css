@@ -9,10 +9,11 @@ body{
 }
 
 header{
-	background-color:rgba(220,220,220,0.9);
-	padding-top: 10px 10px;
+	background-color:rgb(220,220,220);
+	padding-top: 10px;
+	padding-bottom: 10px;
 	position: fixed;
-	z-index: 1;
+	/*z-index: 1;*/
 	width: 95%;
 }
 
@@ -24,20 +25,29 @@ header{
 	margin-right:10px;
 }
 
+#advice{
+	color:#282828;
+}
+
 #score{
+	float: right;
+	height: 40px;
+	width: 40px;
 	position: relative;
-	bottom: 65px;
-	left:165px;
-	font-size: 18px;
+	bottom: -10px;
+	left:-105px;
+	font-size: 20px;
 	color: #ff5757;
 	font-weight: bold;
 	font-family: 'Comic Sans MS';
+	/*border:1px #000000 solid;*/
+	text-align: center;
 }
 
 #message{
 	background-color: #ffffff;
 	font-size: 13px;
-	margin:10px 10px;
+	margin:auto 10px;
 	padding: 1px 10px;
 	border-radius: 5px;
 }
@@ -51,10 +61,7 @@ header{
 }
 
 #wrap{
-	/*border:1px #ffffff solid;*/
 	clear:both;
-	margin-top: auto;
-	padding-top: 200px;
 	padding-left:10px;
 	padding-right:10px;
 }
@@ -124,6 +131,17 @@ h4{
 }
 #item{
 	float:left;
+}
+
+#code{
+	float:left;
+	color:#dcdcdc;
+}
+
+#code li{
+	font-size: 12px;
+	margin-left: 18px;
+	font-weight: lighter;
 }
 
 #change{
