@@ -103,25 +103,28 @@ function c3_first(){
 function main_color(c){　//類似色判定の処理
   var xmlHttp = new XMLHttpRequest();
   if(c == "3"){
-    var main = document.getElementById("list3").value;
+    var main_1 = document.getElementById("list3").value;
   }
   else if(c == "5"){
-    var main = document.getElementById("list5").value;
+    var main_1 = document.getElementById("list5").value;
   }
   else if(c == "7"){
-    var main = document.getElementById("list7").value;
+    var main_1 = document.getElementById("list7").value;
   }
-  main = main.substring(1);
+  var main = main_1.substring(1);
   xmlHttp.open('GET','/cgi-bin/similar.rb?main='+main+'&m1='+m1.substring(1),true);
   xmlHttp.onreadystatechange = function(){
     if(xmlHttp.readyState==4){
       xml = xmlHttp.responseXML;
-      judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
-      score2 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
+      var judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
+      var score5 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
       console.log(judge);
-      text.innerHTML = "<p>"+ judge +"</p>";
+      text.innerHTML = judge;
       var in_score = document.getElementById('score');
-      in_score.innerText = score2;
+      score5_n = Number(score5);
+      multi5 = score5_n - 80;
+      set_chart(score1_n,score2_n,score3_n,score4_n,score5_n);
+      get_score();
       parent.main.location.reload();
     }
   }
@@ -130,28 +133,39 @@ function main_color(c){　//類似色判定の処理
 
 function value_diff(c){ //明度差,色差の判定出力
   var xmlHttp = new XMLHttpRequest();　/*1.オブジェクトの生成*/
+  var str22;
   if(c == "5"){
-    str2 = document.getElementById("list5").value;
+    str22 = document.getElementById("list5").value;
   }
   else if(c == "6"){
-    str2 = document.getElementById("list6").value;
+    str22 = document.getElementById("list6").value;
   }
-  str1 = document.getElementById("list1").value;
-  str1 = str1.substring(1);
-  str2 = str2.substring(1);
+  var str11 = document.getElementById("list1").value;
+
+  str1 = str11.substring(1);
+  str2 = str22.substring(1);
 
   xmlHttp.open('GET','/cgi-bin/output.rb?str1='+str1+'&str2='+str2);
   xmlHttp.onreadystatechange=function(){
   if(xmlHttp.readyState==4){
     xml = xmlHttp.responseXML;
-    hsv = xml.getElementsByTagName("hsv")[0].firstChild.nodeValue;
-    value = xml.getElementsByTagName("value")[0].firstChild.nodeValue;
-    score = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
+    var hsv = xml.getElementsByTagName("hsv")[0].firstChild.nodeValue;
+    var value = xml.getElementsByTagName("value")[0].firstChild.nodeValue;
     var text = document.getElementById('text');
     text.innerText = value;
-    console.log(hsv);
     var in_score = document.getElementById('score');
-    in_score.innerText = score;
+    if (c == "5"){
+      var score2 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
+      score2_n = Number(score2);
+    }
+    else if(c == "6"){
+      var score1 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
+      score1_n = Number(score1);
+    }
+    multi2 = score2_n - 80;
+    multi1 = score1_n - 80;
+    set_chart(score1_n,score2_n,score3_n,score4_n,score5_n);
+    get_score();
     }
   }
   xmlHttp.send(null);

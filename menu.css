@@ -25,10 +25,6 @@ header{
 	margin-right:10px;
 }
 
-#advice{
-	color:#282828;
-}
-
 #score{
 	float: right;
 	height: 40px;
@@ -46,18 +42,26 @@ header{
 
 #message{
 	background-color: #ffffff;
-	font-size: 13px;
+	font-size: 11px;
 	margin:auto 10px;
-	padding: 1px 10px;
+	padding: 5px 10px;
 	border-radius: 5px;
 }
 
-#di_pict{
-	float: left;
-	padding-top: 3px;
+canvas #radar{
+	width: 260px;
+	height: 130px;
 }
 
-#di_message{
+#advice{
+	width: 100%;
+	color:#282828;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+#text{
+	margin-bottom: 10px;
 }
 
 #wrap{

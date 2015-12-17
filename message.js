@@ -71,15 +71,14 @@ function multi(i){　//プラスボタンを押したときの処理
   xmlHttp.send(null);
 }
 
-var score;
-var score2;
 function btn2_submit(c){　//ボタン２を送信したときの処理
   var xmlHttp = new XMLHttpRequest();
+  var btn2;
   if(c == "8"){
-    var btn2 = document.getElementById("list8").value;
+    btn2 = document.getElementById("list8").value;
   }
   else {
-    var btn2 = document.getElementById("list9").value;
+    btn2 = document.getElementById("list9").value;
     var hex = document.getElementsByClassName("hex");
     hex[8].innerText = btn2;
   }
@@ -88,13 +87,18 @@ function btn2_submit(c){　//ボタン２を送信したときの処理
   xmlHttp.onreadystatechange = function(){
     if(xmlHttp.readyState==4){
       xml = xmlHttp.responseXML;
-      judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
-      diard = xml.getElementsByTagName("diard")[0].firstChild.nodeValue;
-      score3 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;
-      text.innerHTML = judge;
-
-      var in_score = document.getElementById('score');
-      in_score.innerText = score3;
+      var judge = xml.getElementsByTagName("judge")[0].firstChild.nodeValue;
+      var judge2 = xml.getElementsByTagName("judge2")[0].firstChild.nodeValue;
+      var score3 = xml.getElementsByTagName("score3")[0].lastChild.nodeValue;//視認性判定
+      var score4 = xml.getElementsByTagName("score")[0].lastChild.nodeValue;//ダイアード判定
+      var diard = xml.getElementsByTagName("diard")[0].firstChild.nodeValue;
+      text.innerHTML = "<li>" + judge + "</li><li>" + judge2 + "</li>";
+      score3_n = Number(score3);
+      score4_n = Number(score4);
+      multi3 = score3_n - 80;
+      multi4 = score4_n - 80;
+      set_chart(score1_n,score2_n,score3_n,score4_n,score5_n);
+      get_score();
       parent.main.location.reload();
     }
   }
@@ -127,39 +131,39 @@ function minus(){
 function c1(c){ //マウスオーバーしたときの処理
   var advice = document.getElementById('advice');
   if (c == "1"){
-  advice.innerText="ベースカラーは背景に使われるよ！この色はメインカラーの薄い色や白を使うとにすると全体がまとまるよ！";
+  advice.innerHTML="背景は<a href='rule.html' target='main'>ベースカラー</a>に当たる部分だね。この色は<a href='rule.html' target='main'>メインカラー</a>を薄くした色や白などの淡い色を選ぶと全体がまとまるよ！";
   mouseover(c);
   }
   else if (c == "2"){
-  advice.innerText="サイト全体をロゴの色に合わせるとまとまるよ！";
+  advice.innerHTML="サイト全体をロゴの色に合わせるとまとまるよ！";
   mouseover(c);
   }
   else if (c == "3"){
-  advice.innerText="ロゴの色はメインになるカラーだよ。ハッキリ見える色にするために、ヘッダーの色とロゴは明度差を付けてあげよう";
+  advice.innerHTML="ヘッダーは<a href='rule.html' target='main'>メインカラー</a>に当たる部分だね。調整する場合はその色の<a href='rule.html#con2' target='main'>類似色</a>を選ぶと全体の調和が保たれるよ！";
   mouseover(c);
   }
   else if (c == "4"){
-  advice.innerText="ナビゲーションと背景のコントラストを大きくとる事を意識しよう！";
+  advice.innerHTML="ナビゲーションと背景の<a href='rule.html#con3' target='main'>明度差</a>を大きく付けて、見やすくしよう！";
   mouseover(c);
   }
   else if (c == "5"){
-  advice.innerText="見出しはハッキリと目立つようにしよう！";
+  advice.innerHTML="見出しは背景との<a href='rule.html#con3' target='main'>明度差</a>を大きく付けて、見やすくしよう！";
   mouseover(c);
   }
   else if (c == "6"){
-  advice.innerText="テキストは背景とのコントラストを付けよう";
+  advice.innerHTML="テキストは背景との<a href='rule.html#con3' target='main'>明度差</a>を付けて、見やすくしよう！";
   mouseover(c);
   }
   else if (c == "7"){
-  advice.innerText="フッターだよん";
+  advice.innerHTML="<a href='rule.html' target='main'>メインカラー</a>に当たる部分だね。調整する場合はその色の<a href='rule.html#con2' target='main'>類似色</a>を選ぶと全体の調和が保たれるよ！";
   mouseover(c);
   }
   else if (c == "8"){
-  advice.innerText="クリックボタンはサイト全体のアクセントとなる色だよ。彩度と明度を高くして目立たせてあげよう！";
+  advice.innerHTML="クリックボタンは<a href='rule.html' target='main'>アクセントカラー</a>だよ。<a href='rule.html' target='main'>メインカラー</a>と<a href='rule.html#con5' target='main'>補色</a>の関係にするとまとまるよ。目立たせるために、<a href='rule.html#con4' target='main'>彩度</a>を高くするよう心がけよう！";
   mouseover(c);
   }
   else if (c == "9"){
-  advice.innerText="ボタン２を追加してアクセントカラーを1色増やす場合は、全体のバランスが崩れないようにボタン1とボタン2の色を類似色にするよ！";
+  advice.innerHTML="ボタン2を追加して<a href='rule.html' target='main'>アクセントカラー</a>を1色増やす場合は、全体のバランスが崩れないようにボタン1とボタン2の色を<a href='rule.html#con2' target='main'>類似色</a>にするよ！";
   mouseover(c);
   }
 }

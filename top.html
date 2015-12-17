@@ -1,72 +1,50 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="width=device-width,initial-scale=1,user-scalable=yes">
-    <title>test</title>
+	<head>
+		<title>Doughnut Chart</title>
+		<script src="Chart.js-master/Chart.js"></script>
+    <script type="text/javascript" src="set_chart.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="sample" height="500" width="500"></canvas>
+    <canvas id="radar" height="300" width="300"></canvas>
+    <input type="button" value ="そうしん" onclick="abc()">
 
-    <!-- Bootstrap -->
-    <link href="top2.css" rel="stylesheet">
-    <link href="top.css" rel="stylesheet">
-    <link href="bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="top.js"></script>
-    <script type="text/javascript">
-    function subsub(){
+	<script>
 
-    var xmlHttp = new XMLHttpRequest();
-    str1 = document.getElementById("list1").value;
-    str2 = document.getElementById("list2").value;
-    str1 = str1.substring(1);
-    str2 = str2.substring(1);
+		var doughnutData = [
+				{
+					value: 30,
+					color:"#aaf2fb"
+				},
+				{
+					value : 50,
+					color : "#ffb6b9"
+				},
+				{
+					value : 120,
+					color : "#ffe361"
+				},
+				{
+					value : 170,
+					color : "#fbaa6e"
+				},
+				{
+					value : 70,
+					color : "#A8BECB"
+				}
 
-    xmlHttp.open('GET','/cgi-bin/r1.rb?str1='+str1+'&str2='+str2);
-    xmlHttp.onreadystatechange=function(){
-    if(xmlHttp.readyState==4){
-      xml = xmlHttp.responseXML;
-      put = xml.getElementsByTagName("put")[0].firstChild.nodeValue;
-      hsv = xml.getElementsByTagName("hsv")[0].firstChild.nodeValue;
-      value = xml.getElementsByTagName("value")[0].firstChild.nodeValue;
-      diard = xml.getElementsByTagName("diard")[0].firstChild.nodeValue;
-      //parent.location.reload();
-      console.log(put);
-      console.log(hsv);
-      console.log(value);
-      alert(diard);
-    }
-  }
-  xmlHttp.send(null);
-}
+			];
 
-  </script>
-  </head>
+	var myDoughnut = new Chart(document.getElementById("sample").getContext("2d")).Doughnut(doughnutData);
 
-<body>
 
-<div id="main">
-  <div id="change">
-  <form>
-  <ul>
-    <li><input type="color" id="list1" name="str1" list="data1" value="#ffffff"></li>
-    <datalist id="data1">
-
-    </datalist>
-    <li><input type="color" id="list2" name="str2" list="data2" value="#ffffff"></li>
-    <datalist id="data2">
-
-    </datalist>
-    <input class = "ip_btn" type="button" value="送信" onclick="subsub()">
-  </ul>
-  </form>
-<p id="text">テキストテキストテキストテキストテキストテキストテキスト</p>
-
-<!--<input type = "button" value="色を増やす" onclick="input()">-->
-
-<div id="inner">
-<div id='color1'>color1</div>
-<div id='color2'>color2</div>
-<div id='color3'>color3</div>
-</div><!--#innner-->
-</div><!--#change-->
-</div><!--#main-->
-</body>
+	</script>
+	</body>
 </html>

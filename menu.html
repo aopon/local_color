@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <title>color teacher</title>
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 <link href="menu.css" rel="stylesheet" type="text/css" media="all"/>
@@ -11,6 +11,8 @@
 <script type="text/javascript" src="i_pattern.js"></script>
 <script type="text/javascript" src="message.js"></script>
 <script type="text/javascript" src="scrol.js"></script>
+<script type="text/javascript" src="set_chart.js"></script>
+<script src="Chart.js-master/Chart.js"></script>
 </head>
 
 <body>
@@ -21,12 +23,15 @@
     <p id="score">0<p>
   </div><!--#pict-->
   <div id="message">
-    <p id="advice">
+    <span style="color:blue;">評価</span>
+    <div id="text">
+    </div>
+    <canvas id="radar" height="130" width="260"></canvas>
+    <span style="color:red;">アドバイス</span>
+    <div id="advice">
       君の好みの色に調整していこう！
-      まずはベースカラー・メインカラー・アクセントカラーを決めるよ！
-    </p>
-    <p id="text">
-    </p>
+      まずは<a href="rule.html" target="main">ベースカラー・メインカラー・アクセントカラー</a>を決めるよ！
+    </div>
   </div><!--#message-->
 </header>
 
@@ -140,7 +145,7 @@
 </form>
 
 <input class = "ip_btn" type="button" value="初期値に戻す" onclick="first()">
-<input class = "ip_btn" type="button" value="送信" onclick="all_submit()">
+<!--<input class = "ip_btn" type="button" value="送信" onclick="all_submit()">-->
 </div><!--#change-->
 </div><!--#con_change-->
 

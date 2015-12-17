@@ -4,6 +4,19 @@ var m1;
 var a1;
 var colorList;
 
+var score1_n = 80;
+var score2_n = 80;
+var score3_n = 80;
+var score4_n = 80;
+var score5_n = 80;
+
+var multi1 = 0;
+var multi2 = 0;
+var multi3 = 0;
+var multi4 = 0;
+var multi5 = 0;
+
+var c;
 window.onload = function(){
   out();
 };
@@ -20,13 +33,19 @@ function ip_btn() {
       color_b = xml.getElementsByTagName('b');
       color_m = xml.getElementsByTagName('m');
       color_a = xml.getElementsByTagName('a');
-      num = 0;
+      var num = 0;
+      score1_n = 80;
+      score2_n = 80;
+      score3_n = 80;
+      score4_n = 80;
+      score5_n = 80;
       display(num);
       stroke(num);
       content(num);
       all_submit();
       cc1(num);
       minus();
+      set_chart(score1_n,score2_n,score3_n,score4_n,score5_n);
       parent.main.location.reload();
   	  }
     }
@@ -82,6 +101,18 @@ function first(i){
     first_content(i);
     minus();
     all_submit();
+    score1_n = 80;
+    score2_n = 80;
+    score3_n = 80;
+    score4_n = 80;
+    score5_n = 80;
+    multi1 = 0;
+    multi2 = 0;
+    multi3 = 0;
+    multi4 = 0;
+    multi5 = 0;
+    set_chart(score1_n,score2_n,score3_n,score4_n,score5_n);
+    get_score();
   }
 }
 function first_content(i){
@@ -141,4 +172,15 @@ function bma_bar(i){
       ctx.fillStyle = m_color;
       ctx.fillRect(150, i*30+2, 50, 20);
   }
+}
+
+function get_score(){ //点数表示
+  var in_score = document.getElementById('score');
+  total = multi1 + multi2 + multi3 + multi4 + multi5;
+  in_score.innerText = total;
+  console.log(multi1);
+  console.log(multi2);
+  console.log(multi3);
+  console.log(multi4);
+  console.log(multi5);
 }
