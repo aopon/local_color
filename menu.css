@@ -6,6 +6,7 @@ body{
 	/*font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;*/
 	font-family: 'ヒラギノ丸ゴ Pro W4','Hiragino Maru Gothic Pro';
 	color: #333333;
+	width: 300px;
 }
 
 header{
@@ -14,7 +15,7 @@ header{
 	padding-bottom: 10px;
 	position: fixed;
 	/*z-index: 1;*/
-	width: 95%;
+	width: 98%;
 }
 
 #good{
@@ -31,16 +32,16 @@ header{
 	width: 40px;
 	position: relative;
 	bottom: -10px;
-	left:-105px;
+	left:-100px;
 	font-size: 20px;
 	color: #ff5757;
 	font-weight: bold;
 	font-family: 'Comic Sans MS';
-	/*border:1px #000000 solid;*/
 	text-align: center;
 }
 
 #message{
+	clear: both;
 	background-color: #ffffff;
 	font-size: 11px;
 	margin:auto 10px;
@@ -67,7 +68,7 @@ canvas #radar{
 #wrap{
 	clear:both;
 	padding-left:10px;
-	padding-right:10px;
+	padding-right:15px;
 }
 #i1{
   margin-top:5px;
@@ -144,7 +145,7 @@ h4{
 
 #code li{
 	font-size: 12px;
-	margin-left: 18px;
+	margin-left: 5px;
 	font-weight: lighter;
 }
 
