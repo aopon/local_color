@@ -59,10 +59,6 @@ nav li a{
   text-decoration:none;
   color:#141414;
   border-top: 1px #0066ff dotted;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all  0.3s;
 }
 
 nav li a:hover{

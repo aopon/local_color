@@ -15,7 +15,7 @@ header{
 	padding-bottom: 10px;
 	position: fixed;
 	/*z-index: 1;*/
-	width: 98%;
+	width: 94%;
 }
 
 #good{
@@ -68,7 +68,7 @@ canvas #radar{
 #wrap{
 	clear:both;
 	padding-left:10px;
-	padding-right:15px;
+	padding-right:10px;
 }
 #i1{
   margin-top:5px;
