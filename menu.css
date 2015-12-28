@@ -40,6 +40,13 @@ header{
 	text-align: center;
 }
 
+#none1{
+	margin-left: 10px;
+}
+#none2{
+	margin-left: 10px;
+}
+
 #message{
 	clear: both;
 	background-color: #ffffff;
@@ -88,7 +95,7 @@ canvas #radar{
 	padding-bottom:15px;
   background-color:#FFF;
 	margin-top:10px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 #pattern span{
@@ -102,7 +109,7 @@ canvas #radar{
 	padding-bottom:15px;
 	padding-left:15px;
 	padding-right:15px;
-	border-radius: 10px;
+	border-radius: 5px;
 	}
 
 #con_change ul{

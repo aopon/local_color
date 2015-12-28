@@ -1,10 +1,10 @@
-
 <!doctype html>
 <html>
 	<head>
-		<title>Doughnut Chart</title>
-		<script src="Chart.js-master/Chart.js"></script>
-    <script type="text/javascript" src="set_chart.js"></script>
+		<title>color teacher(the page of rules)</title>
+		<link href="rule.css" rel="stylesheet" type="text/css" media="all"/>
+		<link href="rule2.css" rel="stylesheet" type="text/css" media="all"/>
+		<script type="text/javascript" src="rule.js"></script>
 		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 		<style>
 			canvas{
@@ -12,39 +12,33 @@
 		</style>
 	</head>
 	<body>
-		<canvas id="sample" height="500" width="500"></canvas>
-    <canvas id="radar" height="300" width="300"></canvas>
-    <input type="button" value ="そうしん" onclick="abc()">
-
-	<script>
-
-		var doughnutData = [
-				{
-					value: 30,
-					color:"#aaf2fb"
-				},
-				{
-					value : 50,
-					color : "#ffb6b9"
-				},
-				{
-					value : 120,
-					color : "#ffe361"
-				},
-				{
-					value : 170,
-					color : "#fbaa6e"
-				},
-				{
-					value : 70,
-					color : "#A8BECB"
-				}
-
-			];
-
-	var myDoughnut = new Chart(document.getElementById("sample").getContext("2d")).Doughnut(doughnutData);
-
-
-	</script>
+		<div id="con1">
+			<h3>ウェブ配色の基本概念</h3>
+			<h4>ベースカラー・メインカラー・アクセントカラーの基礎知識</h4>
+			<div id="pict">
+			</div>
+			<ul>
+				<li>この３色は配色を考える上で基本となる色</li>
+				<li>バランスの良い面積比率は<span>ベースカラー７０％、メインカラー２５％、アクセントカラー５％</span></li>
+				<li>ベースカラーは背景に使われる色</li>
+				<li>メインカラーはロゴ、キャッチフレーズ、メインコンテンツに使われる色</li>
+				<li>アクセントカラーはお問い合わせボタンやキャンペーンに使われる色</li>
+				<li>アクセントカラーはサイトの中で１番目立たせるべきコンテンツ</li>
+			</ul>
+			<img src="img/bma.png" alt="ベースカラー・メインカラー・アクセントカラー" />
+			<h4>ベースカラー</h4>
+				<p class="text">
+					ベースカラーは<span>背景</span>に使われる色である。高彩度色を選ぶと、画面が賑やかになりすぎてしまうことがある。配色をまとめるためには、<span>高彩度色を小さく使った方が効果的</span>である。
+				</p>
+			<h4>メインカラー</h4>
+				<p class="text">
+					メインカラーは主に<span>ロゴ、キャッチフレーズ、メインコンテンツ</span>に使われる色ベースカラーを補う役割の色である。<span>ベースカラーに近い色をメインカラーに選べば統一感のある落ち着いた感じになる</span>し、全く異なる色を選ぶと配色に動きが出てくる。多くの色で賑やかな感じにしたいのなら、メインカラーをいくつかに分割してそのトーンを揃えるとイメージは崩れにくい。メインカラーの比率は厳密に２５％にこだわる必要はないが、<span>分量は超えないようにしなければならない</span>。
+				</p>
+			<h4>アクセントカラー</h4>
+			<p class="text">
+				アクセントカラーは<span>お問い合わせボタン</span>や<span>キャンペーン</span>などの<span>目立たせるコンテンツ</span>に使われる色である。あまり多くの場所でアクセントカラーを使うと、その効果は半減してしまう。うまく使えば全体の配色を引き締めることができるが、配色イメージすべてを変えるわけではない。<br>
+				 <span>画面全体の５％</span>という非常に少ない比率が示すように、ほんの少しだけ使う強い色と考えて、ある程度デザインが進んでから選んでもいい。
+			</p>
+		</div>
 	</body>
 </html>

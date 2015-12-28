@@ -15,6 +15,15 @@ header{
   padding:10px 30px;
 }
 
+ul li{
+  font-size: 14px;
+  line-height: 30px;
+}
+
+ul li span{
+  background-color: #ffff99;
+}
+
 h2{
   color: #ffffff;
   background-color: #cbcbcb;
@@ -89,6 +98,26 @@ h4{
   float: right;
   width: 70%;
   /*border: 1px solid #000000;*/
+}
+
+#con1{
+  padding-bottom: 600px;
+}
+
+#con2{
+  padding-bottom: 600px;
+}
+
+#con3{
+  padding-bottom: 600px;
+}
+
+#con4{
+  padding-bottom: 600px;
+}
+
+#con5{
+  padding-bottom: 600px;
 }
 
 #pict{

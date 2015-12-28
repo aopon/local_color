@@ -19,6 +19,7 @@ var multi5 = 0;
 var c;
 window.onload = function(){
   out();
+  document.getElementById("none2").style.display="none";
 };
 
 function ip_btn() {
@@ -183,4 +184,22 @@ function get_score(){ //点数表示
   console.log(multi3);
   console.log(multi4);
   console.log(multi5);
+}
+
+function finish(){
+  out();
+  parent.main.location.reload();
+}
+
+function none(n){
+  if(n == 1){
+    document.getElementById("none1").style.display="none";
+    document.getElementById("none2").style.display="block";
+    document.getElementById("message").style.display="none";
+  }
+  else if(n == 2){
+    document.getElementById("none1").style.display="block";
+    document.getElementById("none2").style.display="none";
+    document.getElementById("message").style.display="block";
+  }
 }
