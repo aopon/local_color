@@ -13,7 +13,7 @@ function cc1(i){ //色のデータリスト出力
   data3.innerHTML = "" ;
   data4.innerHTML = "" ;
   data5.innerHTML = "" ;
-  //data6.innerHTML = "" ;
+  data6.innerHTML = '<option value="#000000"></option><option value="#141414"></option><option value="#282828"></option><option value="#3c3c3c"></option><option value="#505050"></option><option value="#696969"></option><option value="#808080"></option><option value="#a9a9a9"></option><option value="#c0c0c0"></option><option value="#d3d3d3"></option><option value="#dcdcdc"></option><option value="#f5f5f5"></option><option value="#ffffff"></option>' ;
   data7.innerHTML = "" ;
   data8.innerHTML = "" ;
   data1.innerHTML = "<option value='#ffffff'></option>";

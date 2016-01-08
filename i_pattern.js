@@ -196,10 +196,53 @@ function none(n){
     document.getElementById("none1").style.display="none";
     document.getElementById("none2").style.display="block";
     document.getElementById("message").style.display="none";
+    document.getElementById("score").style.display="none";
+    document.getElementById("pattern").style.display="none";
+    var data1 = document.getElementById('data1');
+    var data2 = document.getElementById('data2');
+    var data3 = document.getElementById('data3');
+    var data4 = document.getElementById('data4');
+    var data5 = document.getElementById('data5');
+    var data6 = document.getElementById('data6');
+    var data7 = document.getElementById('data7');
+    var data8 = document.getElementById('data8');
+    data1.innerHTML = "" ;
+    data2.innerHTML = "" ;
+    data3.innerHTML = "" ;
+    data4.innerHTML = "" ;
+    data5.innerHTML = "" ;
+    data6.innerHTML = "" ;
+    data7.innerHTML = "" ;
+    data8.innerHTML = "" ;
+
+    var xmlHttp = new XMLHttpRequest();
+    var base = "ffffff";
+    var logo= "ffffff";
+    var head = "000000";
+    var navi = "ffffff";
+    var h_text = "000000";
+    var m_text = "000000";
+    var foot = "000000";
+    var btn = "000000";
+
+    xmlHttp.open('GET','/cgi-bin/c_color.rb?base='+base+'&logo='+logo+'&head='+head+'&navi='+navi+'&h_text='+h_text+'&m_text='+m_text+'&foot='+foot+'&btn='+btn,true);
+
+    xmlHttp.onreadystatechange=function(){ /*小僧が持ってくる動作*/
+      if(xmlHttp.readyState==4){
+        xml = xmlHttp.responseXML;
+        parent.main.location.reload();
+        out();
+        input_hex();
+      }
+    }
+    xmlHttp.send(null);
+
   }
   else if(n == 2){
     document.getElementById("none1").style.display="block";
     document.getElementById("none2").style.display="none";
     document.getElementById("message").style.display="block";
+    document.getElementById("score").style.display="block";
+    document.getElementById("pattern").style.display="block";
   }
 }

@@ -10,14 +10,13 @@
 
 <header>
   <div id ="logo">
-    <img src="" alt="" />
-    <h2>ウェブ配色のルールメモ</h2>
+    <img src="img/rule_logo.png" alt="" />
   </div>
 </header>
 
 <div id="wrap">
   <div id="return">
-      <a href="aoi_portfolio/index.html">サンプル画面に戻る</a>
+      <a href="aoi_portfolio/index.html"><img src="img/return.png" alt="" onmouseover="this.src='img/return1.png'" onmouseout="this.src='img/return.png'"/></a>
   </div>
 <nav>
   <ul>
@@ -38,14 +37,14 @@
     <ul>
       <li>この３色は配色を考える上で基本となる色</li>
       <li>バランスの良い面積比率は<span>ベースカラー７０％、メインカラー２５％、アクセントカラー５％</span></li>
-      <li>ベースカラーは背景に使われる色</li>
-      <li>メインカラーはロゴ、キャッチフレーズ、メインコンテンツに使われる色</li>
-      <li>アクセントカラーはお問い合わせボタンやキャンペーンに使われる色</li>
-      <li>アクセントカラーはサイトの中で１番目立たせるべきコンテンツ</li>
+      <li>ベースカラーは<span>背景</span>に使われる色</li>
+      <li>メインカラーは<span>ロゴ、キャッチフレーズ、メインコンテンツ</span>に使われる色</li>
+      <li>アクセントカラーは<span>お問い合わせボタン</span>や<span>キャンペーン</span>に使われる色</li>
+      <li>アクセントカラーはサイトの中で<span>１番目立たせる</span>べきコンテンツ</li>
     </ul>
     <img src="img/bma.png" alt="ベースカラー・メインカラー・アクセントカラー" />
     <p>
-      <a href="#put">もっと見る</a>
+      <input class="put" type="button" value="もっと見る" onclick="put()">
     </p>
     <div id="put">
       <h4>ベースカラー</h4>
@@ -62,29 +61,38 @@
          <span>画面全体の５％</span>という非常に少ない比率が示すように、ほんの少しだけ使う強い色と考えて、ある程度デザインが進んでから選んでもいい。
       </p>
     </div><!--.detail-->
-  </div>
+  </div><!--#put-->
 
   <div id="con2">
     <h3>類似色</h3>
-    <p class="text">
-      <span>色相環で隣に接している色</span>を <span>類似色</span>という。配色の際に類似色の関係にある色を組み合わせると調和しやすく全体に統一感が生まれる。
-    </p>
+    <ul>
+      <li><span>色相環で隣に接している色</span>を<span>類似色</span>という</li>
+      <li>類似色で組み合わせると調和しやすく、全体に統一感が生まれる</li>
+    </ul>
     <img src="img/hue.png" alt="" />
     <img src="img/similar.png" alt="" />
   </div>
 
   <div id="con3">
     <h3>明度差</h3>
-    <p class="text">
-      明度は、<span>色の明るさ</span>を表す。明度は、<span>文字の読みやすさ</span>や<span>図の見やすさ</span>に大きく関わるので、情報を伝える際にはもっとも重視した属性だ。明度差の小さい組み合わせは文字が読みにくくなることを覚えておこう。
-    </p>
+    <ul class="d_text">
+      <li><span>明度は色の明るさ</span>を表す</li>
+      <li><span>文字の読みやすさ（可読性）</span>や<span>図の見やすさ（視認性）</span>に大きく関わる</li>
+      <li><span>明度差の小さい組み合わせ</span>は文字が読みにくくなる</li>
+      <li>明度差が125以上あれば読みやすい</li>
+    </ul>
+    <img src="img/value_diff.png" alt="" />
   </div>
 
   <div id="con4">
-    <h3>彩度</h3>
-    <p class="text">
-      彩度は、<span>色の鮮やかさ</span>を表す要素で、明度と同じように高低で表すこともある。彩度の高い色は強く派手に見え、彩度の低い色は、弱く地味な感じになる。
-    </p>
+    <h3>彩度 (Saturation)</h3>
+    <ul class="d_text">
+      <li><span>色の鮮やかさ</span>を表す要素</li>
+      <li>彩度の<span>高い</span>色は、<span>強く派手</span>に見える</li>
+      <li>彩度の<span>低い</span>色は、<span>弱く地味</span>に見える</li>
+    </ul>
+    <img src="img/satu.png" alt="" />
+
     <h4 class="plus">これも一緒に覚えよう！</h4>
     <div class="detail">
       <h4>HSVの表し方</h4>
@@ -98,13 +106,7 @@
         <li>一周３６０度の円で表す</li>
       </ul>
       <img src="img/hue2.png" alt="" width="134" height="134" />
-      <h4>Saturation・Chroma（彩度）</h4>
-      <ul class="d_text">
-        <li>色の鮮やかさの値</li>
-        <li>数値が下がるほど色がなくなり白、黒、グレーに近づく</li>
-        <li>ゼロで無彩色（白、黒、グレーに近づく）</li>
-      </ul>
-      <img src="img/satu.png" alt="" />
+
       <h4>Value・Brightness（明度）</h4>
       <ul class="d_text">
         <li>明るさの値</li>
@@ -116,9 +118,11 @@
 
   <div id="con5">
     <h3>補色（ダイアード）</h3>
-    <p class="text">
-      色相環上で<span>正反対に位置する対象的な色</span>である補色は、お互いの色をより鮮やかに見せる効果があり、ウェブページの<span>クリックボタン、キャッチコピー</span>など、その部分を強調したい場合によく用いられる。
-    </p>
+    <ul>
+      <li>色相環上で<span>正反対に位置する対象的な色</span>の組み合わせ</li>
+      <li>お互いの色をより鮮やかに見せる効果がある</li>
+      <li>ウェブページの<span>クリックボタン、キャッチコピー</span>など、その部分を強調したい場合によく用いられる</li>
+    </ul>
     <img src="img/hue.png" alt="" />
     <img src="img/diard.png" alt="" />
     <h4 class="plus">これも一緒に覚えよう！</h4>

@@ -42,9 +42,21 @@ header{
 
 #none1{
 	margin-left: 10px;
+	padding:3px 15px;
+	background:#ffffff;
+	border: solid 1px #999;
+	color:#767477;
+	border-radius: 5px;
+	outline: 0px none transparent;
 }
 #none2{
 	margin-left: 10px;
+	padding:3px 15px;
+	background:#ffffff;
+	border: solid 1px #999;
+	color:#767477;
+	border-radius: 5px;
+	outline: 0px none transparent;
 }
 
 #message{
